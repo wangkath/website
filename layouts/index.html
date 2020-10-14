@@ -7,7 +7,7 @@
     =============================== -->
 <section class="header" id="home">
   <div class="logo">
-    <img class="img-fluid" src="{{ .Site.Params.logo_light | relURL }}" alt="{{ .Site.Title }}">
+    <!-- <img class="img-fluid" src="{{ .Site.Params.logo_light | relURL }}" alt="{{ .Site.Title }}"> -->
   </div>
   <div class="slider-prev-button slider-button">
     <i class="fa fa-angle-left"></i>
@@ -103,7 +103,7 @@
         {{ end }}
       </ul>
       <!-- Language List -->
-      {{- if .Site.IsMultiLingual }}
+      <!-- {{- if .Site.IsMultiLingual }}
       <select id="select-language" onchange="location = this.value;">
         {{ $siteLanguages := .Site.Languages}}
         {{ $pageLang := .Page.Lang}}
@@ -122,7 +122,7 @@
         {{ end }}
         {{ end }}
       </select>
-      {{ end }}
+      {{ end }} -->
       <!-- /desktop-menu -->
 
       <!-- mobile-menu -->
@@ -134,8 +134,8 @@
             <span></span>
           </div>
         </a>
-        <div class="mobile-menu-logo"><a href="{{.Site.BaseURL | relLangURL }}"><img class="img-fluid"
-              src="{{ .Site.Params.logo_dark | absURL }}" alt="{{ .Site.Title }}"></a>
+        <!-- <div class="mobile-menu-logo"><a href="{{.Site.BaseURL | relLangURL }}"><img class="img-fluid"
+              src="{{ .Site.Params.logo_dark | absURL }}" alt="{{ .Site.Title }}"></a> -->
         </div>
         <div class="menu-slider">
           <nav>
@@ -183,6 +183,7 @@
 <!-- =============================
        Start About Me
     =============================== -->
+
 <section class="about-me" id="about">
   <div class="container">
     {{ if $data.homepage.about.enable }}
@@ -207,20 +208,33 @@
     </div>
     {{ end }}
     {{ end }}
-
-    <div class="row experience-skill">
+    <div class="row experience-skill" id = "experience">
       {{ if $data.homepage.experience.enable }}
       {{ with $data.homepage.experience }}
-      <div class="col-lg-6 col-sm-6 col-11 experience wow fadeInUp" data-wow-duration="1.5s">
+      <div class="experience wow fadeInUp" data-wow-duration="1.5s">
+        <!-- col-lg-6 col-sm-6 col-11  -->
         <h3>{{ .title }}</h3>
         <ul class="experience-chart">
           {{ range .experience_list }}
           <li>
             <div class="single-experience">
               <h4>{{ .name | markdownify }}</h4>
-              {{ with .company }} <span>{{ . | markdownify }}</span> {{ end }}
-              {{ with .duration }} <span>{{ . | markdownify }}</span> {{ end }}
-              {{ with .content }} <p>{{ . | markdownify}}</p> {{ end }}
+              {{ with .company }} <span>{{ . | safeHTML }}</span> {{ end }}
+              {{ with .duration }} <span>{{ . | safeHTML }}</span> {{ end }}
+              {{ with .content }} <p>{{ . | safeHTML}}</p> {{ end }} 
+              <a href = "{{ .websiteurl }}" target="_blank">{{ .website | safeHTML}}</a>
+              <a href = "{{ .websiteurl }}" target="_blank">{{ .instagram | safeHTML}}</a>
+              <div class = "experience-images">
+                <a class = "p-filtr-container" href = "{{ .image1 | absURL }}" title = "{{ .description1 }}">
+                  <img class = "experience-img" src = "{{ .image1 | absURL }}" style = "margin-bottom: 10px;">
+                </a>
+                <a class = "p-filtr-container" href = "{{ .image2 | absURL }}" title = "{{ .description2 }}">
+                  <img class = "experience-img" src = "{{ .image2 | absURL }}" style = "margin-bottom: 10px;">
+                </a>
+                <a class = "p-filtr-container" href = "{{ .image3 | absURL }}" title = "{{ .description3 }}">
+                  <img class = "experience-img" src = "{{ .image3 | absURL }}" style = "margin-bottom: 10px;">
+                </a>
+              </div>
             </div>
           </li>
           {{ end }}
@@ -228,6 +242,11 @@
       </div>
       {{ end }}
       {{ end }}
+      <!-- <div class = "image-gallery wow fadeInUp" data-wow-duration="1.5s">
+        <img src = "images/slider/slide-1.JPG">
+        <img src = "images/slider/slide-2.JPG">
+        <img src = "images/slider/slide-3.jpg">
+      </div> -->
 
       {{ if $data.homepage.skill.enable }}
       {{ with $data.homepage.skill }}
@@ -257,7 +276,7 @@
 <!-- =============================
       Start Services
     =============================== -->
-<section class="services" id="service">
+<section class="services" id="portfolio">
   {{ if $data.homepage.service.enable }}
   {{ with $data.homepage.service }}
   <div class="container">
@@ -268,34 +287,12 @@
             <div class="bar"></div>
             <h1>{{ .title }}</h1>
           </div>
-          <div class="row">
-            {{ range .service_list }}
-            <div class="col-lg-4 col-sm-4 col-12 services-icon">
-              <div class="service-img">
-                <img class="img-fluid" src="{{ .image | absURL }}" alt="{{ .name | markdownify }}">
-              </div>
-              <div class="service-label">{{ .name | markdownify }}</div>
-            </div>
-            {{ end }}
+          <div class="video">
+              <iframe src="https://www.youtube.com/embed/scgck386FNI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  {{ end }}
-  {{ end }}
-
-  {{ if $data.homepage.call_to_action.enable }}
-  {{ with $data.homepage.call_to_action }}
-  <div class="need-service wow fadeInUp" data-wow-duration="1.5s"
-    style="background-image: url('{{ .bg_image | absURL }}');">
-    <h1>{{ .title | markdownify }}</h1>
-    {{ with .content }} <p class="text-white">{{ . | markdownify }}</p> {{ end }}
-    {{ if .button.enable }}
-    {{ with .button }}
-    <a href="{{ .link }}">{{ .label }}</a>
-    {{ end }}
-    {{ end }}
   </div>
   {{ end }}
   {{ end }}
@@ -309,7 +306,7 @@
     =============================== -->
 {{ if $data.homepage.portfolio.enable }}
 {{ with $data.homepage.portfolio }}
-<section class="portfolio" id="portfolio">
+<section class="portfolio">
   <div class="container-fluid text-center">
     <div class="row portfolio-holder text-left">
       <div class="col-12 text-center">

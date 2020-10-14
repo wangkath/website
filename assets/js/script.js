@@ -221,6 +221,36 @@
 			End About Me
 	----------------------------------*/
 
+	// $('.p-filtr-container').magnificPopup({
+	// 	type: 'image',
+	// 	delegate: 'a',
+	// 	gallery: {
+	// 		enabled: true
+	// 	},
+	// 	zoom: {
+	// 		enabled: true,
+	// 		duration: 300,
+	// 		easing: 'ease-in-out'
+	// 	}
+	// });
+
+	$('.p-filtr-container').magnificPopup({
+		type: 'image',
+		closeOnContentClick: true,
+		gallery: {
+			enabled: true
+		},
+		zoom: {
+			enabled: true,
+			duration: 300,
+			easing: 'ease-in-out'
+		},
+		image: {
+			verticalFit: true
+		}
+		
+	});
+
 	/*--------------------------------
 			 Start Portfolio
 	----------------------------------*/
@@ -248,14 +278,14 @@
 	});
 
 	// Galley Shuffle When Scrolled Down
-	$('.services').waypoint({
-		handler: function (direction) {
-			if (direction == "down") {
-				filterizd.filterizr('shuffle');
-			}
-		},
-		offset: "bottom-in-view"
-	});
+	// $('.services').waypoint({
+	// 	handler: function (direction) {
+	// 		if (direction == "down") {
+	// 			filterizd.filterizr('shuffle');
+	// 		}
+	// 	},
+	// 	offset: "bottom-in-view"
+	// });
 
 	// load more button
 
