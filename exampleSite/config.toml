@@ -1,5 +1,5 @@
 ######################## default configuration ####################
-baseURL = "https://katherinerg.com"
+baseURL = "https://wangkath.github.io/website/"
 title = "Katherine Wang"
 theme = "somrat"
 # disable language
