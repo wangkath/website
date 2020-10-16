@@ -50,11 +50,13 @@ experience:
     - name : "PoleIt"
       company : "Personal Project"
       # duration : "2016-2018"
-      content : "I work with HTML, CSS, and Javascript to create websites and web applications like Personal, Business, Blog, E-comerches etc."
+      content : "A tool I designed and created that eliminates the dangerous and inefficient I work with HTML, CSS, and Javascript to create websites and web applications like Personal, Business, Blog, E-comerches etc."
       image1: "images/projects/poleit-1.jpg"
-      image2: "images/slider/slide-2.JPG"
-      image3: "images/slider/slide-3.jpg"
+      image2: "images/projects/poleit-2.jpg"
+      image3: "images/projects/poleit-3.jpg"
       description1: "3D designed and printed upper component that stores WIFI Arduino module, battery, and motor."
+      description2: "Leveraging tool at my gym."
+      description3: "Stacked carbon fiber tubes that allow for a ~ 9 meter vertical extension."
 
     # experience item loop
     - name : "RG Wellness"

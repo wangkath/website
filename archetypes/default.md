@@ -1,6 +1,6 @@
 ---
 title: "Katherine Wang"
-date: {{ .Date }}
+date: "10/15/2003" #{{ .Date }}
 draft: true
 # description
 description: "This is meta description"
