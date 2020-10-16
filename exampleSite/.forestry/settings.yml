@@ -1,5 +1,6 @@
 ---
 new_page_extension: md
+publishDir: docs
 auto_deploy: false
 admin_path: ''
 webhook_url: 
