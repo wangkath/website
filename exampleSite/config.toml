@@ -1,5 +1,5 @@
 ######################## default configuration ####################
-baseURL = "https://wangkath.github.io/website/"
+baseURL = "wangkath.github.io/website/"
 publishDir = "docs"
 title = "Katherine Wang"
 theme = "somrat"
